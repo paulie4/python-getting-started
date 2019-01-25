@@ -8,7 +8,7 @@ from .models import Greeting
 @csrf_exempt
 def index(request):
     # return HttpResponse('Hello from Python!')
-    context = {'signedRequest': request.POST['signed_request:']}
+    context = {'signedRequest': request.POST['signed_request']}
     return render(request, "index.html", context)
 
 
