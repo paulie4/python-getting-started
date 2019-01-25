@@ -6,7 +6,8 @@ from .models import Greeting
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
-    return render(request, "index.html")
+    context = {'signedRequest': request.POST['signed_request:']}
+    return render(request, "index.html", context)
 
 
 def db(request):
