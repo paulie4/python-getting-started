@@ -8,7 +8,7 @@
     <script>
         const signedRequest = '{{ signedRequest }}';
         const signedRequestPayload = JSON.parse(atob(signedRequest.split('.')[1]));
-        const params = signedRequestPayload.context.environment.parameters;
+        const params = JSON.stringify(signedRequestPayload.context.environment.parameters);
         document.querySelector('span').textContent = params;
         document.querySelector('button').onclick = () => {
             Sfdc.canvas.client.publish(signedRequestPayload.client, {name: 'TestSfdcPublish', payload: {params: params}});
