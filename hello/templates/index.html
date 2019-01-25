@@ -1,5 +1,10 @@
 <head>
     <script src="canvas-all.js"></script>
+</head>
+<body>
+    location.search = <span></span>
+    <button type="button" value="trigger Sfdc.canvas.client.publish()"></button>
+
     <script>
         const signedRequest = '{{ signedRequest }}';
         const signedRequestPayload = JSON.parse(atob(signedRequest.split('.')[1]));
@@ -8,10 +13,6 @@
             Sfdc.canvas.client.publish(signedRequestPayload.client, {name: 'TestSfdcPublish', payload: {testVal: '8675309'}})
         };
     </script>
-</head>
-<body>
-    location.search = <span></span>
-    <button type="button" value="trigger Sfdc.canvas.client.publish()"></button>
 </body>
 
 {% comment %}
