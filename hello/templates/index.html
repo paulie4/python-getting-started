@@ -2,15 +2,16 @@
     <script src="/static/canvas-all.js"></script>
 </head>
 <body>
-    location.search = <span></span><br>
+    signedRequest params = <span></span><br>
     <button type="button">trigger Sfdc.canvas.client.publish()</button>
 
     <script>
         const signedRequest = '{{ signedRequest }}';
         const signedRequestPayload = JSON.parse(atob(signedRequest.split('.')[1]));
-        document.querySelector('span').textContent = location.search;
+        const params = signedRequestPayload.context.environment.parameters;
+        document.querySelector('span').textContent = params;
         document.querySelector('button').onclick = () => {
-            Sfdc.canvas.client.publish(signedRequestPayload.client, {name: 'TestSfdcPublish', payload: {testVal: '8675309'}})
+            Sfdc.canvas.client.publish(signedRequestPayload.client, {name: 'TestSfdcPublish', payload: {params: params}});
         };
     </script>
 </body>
