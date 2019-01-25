@@ -9,7 +9,7 @@
         const signedRequest = '{{ signedRequest }}';
         const signedRequestPayload = JSON.parse(atob(signedRequest.split('.')[1]));
         document.querySelector('span').textContent = location.search;
-        document.querySelector('button').click = () => {
+        document.querySelector('button').onclick = () => {
             Sfdc.canvas.client.publish(signedRequestPayload.client, {name: 'TestSfdcPublish', payload: {testVal: '8675309'}})
         };
     </script>
