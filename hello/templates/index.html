@@ -1,7 +1,7 @@
 <head>
     <script src="canvas-all.js"></script>
     <script>
-        const signedRequest = '{% request.POST['signed_request:'] %}';
+        const signedRequest = '{% signedRequest %}';
         const signedRequestPayload = JSON.parse(atob(signedRequest.split('.')[1]));
         document.querySelector('span').textContent = location.search;
         document.querySelector('button').click = () => {
